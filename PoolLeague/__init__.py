@@ -24,7 +24,12 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+    
+    # register the database
+    from . import db
+    db.init_app(app)
 
+    # silly test page
     @app.route('/8ball')
     def eight_ball():
         return f"Magic eight ball says ... {random.choice(RESPONSES)}"
