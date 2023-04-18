@@ -1,0 +1,2 @@
+include PoolLeage/schema.sql
+global-exclude *.pyc
